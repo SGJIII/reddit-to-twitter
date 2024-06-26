@@ -69,39 +69,40 @@ Add the following lines to schedule the script:
 # Reddit-to-Twitter Automation Schedule (Pacific Time)
 
 # Monday
-0 4 * * 1 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 11 * * 1 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 16 * * 1 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
+0 4 * * 1 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 11 * * 1 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 16 * * 1 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
 
 # Tuesday
-0 9 * * 2 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 11 * * 2 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 16 * * 2 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
+0 9 * * 2 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 11 * * 2 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 16 * * 2 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
 
 # Wednesday
-0 12 * * 3 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 15 * * 3 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 16 * * 3 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
+0 12 * * 3 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 15 * * 3 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 16 * * 3 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
 
 # Thursday
-0 0 * * 4 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 10 * * 4 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 11 * * 4 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
+0 0 * * 4 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 10 * * 4 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 11 * * 4 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
 
 # Friday
-0 0 * * 5 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 11 * * 5 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 13 * * 5 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
+0 0 * * 5 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 11 * * 5 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 13 * * 5 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
 
 # Saturday
-0 20 * * 6 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 21 * * 6 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 22 * * 6 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
+0 20 * * 6 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 21 * * 6 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 22 * * 6 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
 
 # Sunday
-0 0 * * 7 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 15 * * 7 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
-0 19 * * 7 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
+0 0 * * 7 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 15 * * 7 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+0 19 * * 7 /path/to/your/venv/bin/python /path/to/your/reddit-to-twitter/main.py
+
 ```
 Save and exit the crontab editor.
 ### Notes
