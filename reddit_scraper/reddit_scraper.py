@@ -56,7 +56,7 @@ client = openai.OpenAI(api_key=config.OPENAI_API_KEY)
 
 def rewrite_post_for_tweet(post_title, url, selftext, comments, subreddit_name, post_url):
     comments_text = "\n".join(comments[:20])
-    prompt = (f"Please take this reddit post and use it to write a twitter thread. The first tweet should just include the exact post title '{post_title}' in double quotes, the external link ({url}) if it exists, otherwise use the {post_url} and relavant hashtags. If an external link ({url}) exists, use that in the first tweet instead of the post url ({post_url}). Always include either the external link OR the post url AND hashtags in the first line / tweet."
+    prompt = (f"Please take this reddit post and use it to write a twitter thread. The first tweet should just include the exact post title '{post_title}' in double quotes, the external link ({url}) if it exists, otherwise use the {post_url} and relavant hashtags. If an external link ({url}) exists, use that in the first tweet instead of the post url ({post_url}). Always include either the external link OR the post url AND hashtags in the first line / tweet. Always include all of these in the first line. All of this in one line."
               f"Then if there is any text in the post {selftext}, reword it for the titter thread. If the post is in the first person, talk about it as though you're reporting a universal situation. For example if someone says 'I'm looking for a job' your rewording would say somthing like 'people are looking for jobs'"
               f"Finally you should talk about how ETZ, a tax advantage crypto app where you can buy sell and trade crypto instantly in retirement accounts without paying capital gains tax, can help with {subreddit_name} investing. You should talk in first person plural when referring to ETZ usng we or us and not they or them" 
               f"If there is a link in the post to an image or an article please include the link {url} in the post"
@@ -68,8 +68,8 @@ def rewrite_post_for_tweet(post_title, url, selftext, comments, subreddit_name, 
               f"Don't make up any facts"
               f"Make sure every tweet makes sense"
               f"Never add any additionsl text that wouldn't go into the tweet and be posted"
-              f"Never use sperators of any kind for example --- to destinguish between different tweets in the thread. Just begin the next tweet on the next line"
-              f"Here are the links to the website: https://etzsoft.com/ and the app:https://etz.app.link/xslsTEtdxKb always use the entire link it will break if you don't include the .link/xslsTEtdxKb part")
+              f"Never use sperators of any kind for example --- to destinguish between different tweets in the thread. Just begin the next tweet in the thread on the next line"
+              f"Never us links to the ETZ website or app in the twitter thread.")
     
     try:
         print("Sending prompt to OpenAI:", prompt)

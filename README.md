@@ -119,3 +119,7 @@ Ensure all dependencies are correctly installed in the virtual environment.
 Verify that your API keys and configuration are correct.
 ### License
 This project is licensed under the MIT License.
+
+# Roadmap
+### Twitter cards where no image exists
+Use an open source ai image generator to create twitter cards for posts that have a link containing reddit
