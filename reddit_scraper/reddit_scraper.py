@@ -3,7 +3,7 @@ import config
 import praw
 from datetime import datetime, timedelta
 
-def get_hottest_posts(subreddit_name, limit=1, after=None):
+def get_hottest_posts(subreddit_name, limit=10, after=None):
     try:
         print(f"Fetching hottest posts from r/{subreddit_name}...")
         reddit = praw.Reddit(client_id=config.REDDIT_CLIENT_ID,
@@ -12,7 +12,7 @@ def get_hottest_posts(subreddit_name, limit=1, after=None):
         subreddit = reddit.subreddit(subreddit_name)
         hottest_posts = []
         now = datetime.utcnow()
-        for post in subreddit.hot(limit=50):  # Increase the limit to get more posts to filter from
+        for post in subreddit.hot(limit=100):  # Increased to 100 to have more posts to filter from
             post_time = datetime.utcfromtimestamp(post.created_utc)
             if (now - post_time) <= timedelta(days=1) and not post.stickied:
                 if after and post_time <= after:
@@ -58,7 +58,7 @@ def rewrite_post_for_tweet(post_title, url, selftext, comments, subreddit_name, 
     comments_text = "\n".join(comments[:20])
     prompt = (f"Please take this reddit post and use it to write a twitter thread. The first tweet should just include the exact post title '{post_title}' in double quotes, the external link ({url}) if it exists, otherwise use the {post_url} and relavant hashtags. If an external link ({url}) exists, use that in the first tweet instead of the post url ({post_url}). Always include either the external link OR the post url AND hashtags in the first line / tweet. Always include all of these in the first line. All of this in one line."
               f"Then if there is any text in the post {selftext}, reword it for the titter thread. If the post is in the first person, talk about it as though you're reporting a universal situation. For example if someone says 'I'm looking for a job' your rewording would say somthing like 'people are looking for jobs'"
-              f"Finally you should talk about how ETZ, a tax advantage crypto app where you can buy sell and trade crypto instantly in retirement accounts without paying capital gains tax, can help with {subreddit_name} investing. You should talk in first person plural when referring to ETZ usng we or us and not they or them" 
+              f"Finally you should talk about how ETZ, a tax free crypto trading app, can help with investing in a way that's relevant to the content of this post {selftext}. You should talk in first person plural when referring to ETZ usng we or us and not they or them" 
               f"If there is a link in the post to an image or an article please include the link {url} in the post"
               f"Never address me. Just send me the twitter thread"
               f"Never include thread numbers like 1/8 2/8 etc"

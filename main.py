@@ -56,24 +56,31 @@ def job():
     if last_post_time:
         last_post_time = datetime.fromtimestamp(last_post_time)
     else:
-        last_post_time = datetime.now() - timedelta(days=1)  # Default to last 24 hours
+        last_post_time = datetime.now() - timedelta(days=1)
 
     print(f"Fetching posts for r/{subreddit} after {last_post_time}")
 
-    posts = get_hottest_posts(subreddit, limit=1, after=last_post_time)
+    # Get more posts to filter through
+    posts = get_hottest_posts(subreddit, limit=10, after=last_post_time)
     if not posts:
         print(f"No posts found for subreddit: r/{subreddit}")
         return
 
-    post = posts[0]
-    log_post_details(post)  # Log the details of the Reddit post
+    # Filter for posts with media links
+    media_posts = [post for post in posts if post['media_links']]
+    if not media_posts:
+        print(f"No posts with media found for subreddit: r/{subreddit}")
+        return
+
+    post = media_posts[0]  # Take the highest ranked post with media
+    log_post_details(post)
     tweet = rewrite_post_for_tweet(post['title'], post['url'], post['selftext'], post['comments'], subreddit, post['post_url'])
     if tweet == "Error generating tweet":
         print("Error in generating tweet, skipping...")
         return
 
     tweet_with_link = f"{tweet}\n\n{ETZ_LINK}"
-    print("Final Tweet Thread:", tweet_with_link)  # Log the final tweet thread
+    print("Final Tweet Thread:", tweet_with_link)
 
     try:
         schedule_tweet(tweet_with_link, post['media_links'])
