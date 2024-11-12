@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from reddit_scraper.reddit_scraper import get_hottest_posts, rewrite_post_for_tweet
 from tweet_scheduler.tweet_scheduler import schedule_tweet
 
-subreddits = ['retirement', 'CryptoCurrency', 'Bitcoin']
+subreddits = ['sui', 'CryptoCurrency', 'Bitcoin', 'CryptoMoonShots', 'Ethereum', 'dogecoin', 'solana','Altcoin', 'cryptocurrencymemes', 'defi', 'SatoshiStreetBets']
 ETZ_LINK = ""
 LAST_POSTS_FILE = 'last_posts.json'
 SUBREDDIT_INDEX_FILE = 'subreddit_index.json'

@@ -1,40 +1,34 @@
-Schedule
+# Distribute 11 subreddits throughout the day (roughly every 2 hours between 9 AM and 9 PM EST)
 
-Monday: 4 a.m., 11 a.m., and 4 p.m.
-Tuesday: 9 a.m., 11 a.m., and 4. p.m.
-Wednesday: 12 p.m., 3 p.m. and 4 p.m.
-Thursday: 12 a.m., 10 a.m., and 11 a.m.
-Friday: 12 a.m., 11 a.m., and 1 p.m.
-Saturday: 8 p.m., 9 p.m., and 10 p.m.
-Sunday: 12 a.m., 3 p.m., and 7 p.m.
+# 9:00 AM EST
+0 9 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
+# 10:30 AM EST
+30 10 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
-Test with   /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py
+# 12:00 PM EST
+0 12 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
-0 12 * * 3 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 15 * * 3 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 16 * * 3 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
+# 1:30 PM EST
+30 13 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
-0 0 * * 4 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 10 * * 4 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 11 * * 4 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
+# 3:00 PM EST
+0 15 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
-0 0 * * 5 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 11 * * 5 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 13 * * 5 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
+# 4:30 PM EST
+30 16 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
-0 20 * * 6 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 21 * * 6 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 22 * * 6 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
+# 6:00 PM EST
+0 18 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
-0 0 * * 0 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 15 * * 0 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 19 * * 0 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
+# 7:30 PM EST
+30 19 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
-0 4 * * 1 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 11 * * 1 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 16 * * 1 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
+# 8:30 PM EST
+30 20 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
 
-0 9 * * 2 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 11 * * 2 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
-0 16 * * 2 /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
+# 9:30 PM EST
+30 21 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
+
+# 10:30 PM EST
+30 22 * * * /Users/samjohnson/ETZ/venv/bin/python /Users/samjohnson/ETZ/reddit-to-twitter/main.py >> /Users/samjohnson/ETZ/reddit-to-twitter/job.log 2>&1
