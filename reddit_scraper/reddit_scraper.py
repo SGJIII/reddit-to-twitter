@@ -17,35 +17,31 @@ def get_hottest_posts(subreddit_name, limit=10, after=None):
             if (now - post_time) <= timedelta(days=1) and not post.stickied:
                 if after and post_time <= after:
                     continue
-                comments = []
-                post.comments.replace_more(limit=None)
-                for top_level_comment in post.comments[:20]:
-                    comments.append(top_level_comment.body)
                 
-                # Extract media links
-                media_links = []
+                # Extract external links
                 external_links = []
-                if hasattr(post, 'media') and post.media:
-                    if 'reddit_video' in post.media:
-                        media_links.append(post.media['reddit_video']['fallback_url'])
                 if hasattr(post, 'url') and post.url:
-                    if any(post.url.endswith(ext) for ext in ['.jpg', '.jpeg', '.png', '.gif', '.mp4']) and not post.url.startswith("https://i.redd.it"):
-                        media_links.append(post.url)
                     if not post.url.startswith(("https://www.reddit.com", "https://i.redd.it", "https://v.redd.it")):
                         external_links.append(post.url)
 
-                post_details = {
-                    'title': post.title,
-                    'url': external_links[0] if external_links else "",  # Use the first external link if available
-                    'selftext': post.selftext,
-                    'comments': comments,
-                    'post_url': f"https://www.reddit.com{post.permalink}",
-                    'media_links': media_links,
-                    'created_utc': post.created_utc
-                }
-                hottest_posts.append(post_details)
-                if len(hottest_posts) >= limit:
-                    break
+                # Only add posts that have external links
+                if external_links:
+                    comments = []
+                    post.comments.replace_more(limit=None)
+                    for top_level_comment in post.comments[:20]:
+                        comments.append(top_level_comment.body)
+
+                    post_details = {
+                        'title': post.title,
+                        'url': external_links[0],  # Use the first external link
+                        'selftext': post.selftext,
+                        'comments': comments,
+                        'post_url': f"https://www.reddit.com{post.permalink}",
+                        'created_utc': post.created_utc
+                    }
+                    hottest_posts.append(post_details)
+                    if len(hottest_posts) >= limit:
+                        break
         print("Fetched posts:", hottest_posts)
         return hottest_posts
     except Exception as e:

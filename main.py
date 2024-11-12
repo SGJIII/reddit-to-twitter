@@ -60,19 +60,13 @@ def job():
 
     print(f"Fetching posts for r/{subreddit} after {last_post_time}")
 
-    # Get more posts to filter through
+    # Get posts with external links
     posts = get_hottest_posts(subreddit, limit=10, after=last_post_time)
     if not posts:
-        print(f"No posts found for subreddit: r/{subreddit}")
+        print(f"No posts with external links found for subreddit: r/{subreddit}")
         return
 
-    # Filter for posts with media links
-    media_posts = [post for post in posts if post['media_links']]
-    if not media_posts:
-        print(f"No posts with media found for subreddit: r/{subreddit}")
-        return
-
-    post = media_posts[0]  # Take the highest ranked post with media
+    post = posts[0]  # Take the highest ranked post with external link
     log_post_details(post)
     tweet = rewrite_post_for_tweet(post['title'], post['url'], post['selftext'], post['comments'], subreddit, post['post_url'])
     if tweet == "Error generating tweet":
@@ -83,7 +77,7 @@ def job():
     print("Final Tweet Thread:", tweet_with_link)
 
     try:
-        schedule_tweet(tweet_with_link, post['media_links'])
+        schedule_tweet(tweet_with_link)
         last_posts[subreddit] = post['created_utc']
         save_last_posts(last_posts)
     except Exception as e:
