@@ -56,6 +56,7 @@ def rewrite_post_for_tweet(post_title, url, selftext, comments, subreddit_name, 
               f"Then if there is any text in the post {selftext}, reword it for the titter thread. If the post is in the first person, talk about it as though you're reporting a universal situation. For example if someone says 'I'm looking for a job' your rewording would say somthing like 'people are looking for jobs'"
               f"Finally you should talk about how ETZ, a tax free crypto trading app, can help with investing in a way that's relevant to the content of this post {selftext}. You should talk in first person plural when referring to ETZ usng we or us and not they or them" 
               f"If there is a link in the post to an image or an article please include the link {url} in the post"
+              f"If the post mentions a specific asset or crypto currency, be sure to mention that it can be traded tax free on ETZ"
               f"Never address me. Just send me the twitter thread"
               f"Never include thread numbers like 1/8 2/8 etc"
               f"Never mention the reddit thread directly in the tweet"
