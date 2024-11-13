@@ -41,6 +41,8 @@ def log_post_details(post):
     print("Selftext:", post['selftext'])
     print("Comments:", post['comments'])
     print("Created At:", post['created_utc'])
+    if 'media_links' in post:
+        print("Media Links:", post['media_links'])
     print("-------------------------")
 
 def job():
