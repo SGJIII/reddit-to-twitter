@@ -37,10 +37,9 @@ def save_subreddit_index(index):
 def log_post_details(post):
     print("Title:", post['title'])
     print("Post URL:", post['post_url'])
-    print("Content URL:", post['url'])
+    print("External URL:", post['url'])
     print("Selftext:", post['selftext'])
     print("Comments:", post['comments'])
-    print("Media Links:", post['media_links'])
     print("Created At:", post['created_utc'])
     print("-------------------------")
 
@@ -66,7 +65,12 @@ def job():
         print(f"No posts with external links found for subreddit: r/{subreddit}")
         return
 
-    post = posts[0]  # Take the highest ranked post with external link
+    # Double check we have an external link
+    post = posts[0]
+    if not post['url'] or post['url'].startswith(("https://www.reddit.com", "https://i.redd.it", "https://v.redd.it")):
+        print(f"No valid external link found in post: {post['title']}")
+        return
+
     log_post_details(post)
     tweet = rewrite_post_for_tweet(post['title'], post['url'], post['selftext'], post['comments'], subreddit, post['post_url'])
     if tweet == "Error generating tweet":

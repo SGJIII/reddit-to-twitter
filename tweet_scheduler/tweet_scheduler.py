@@ -2,7 +2,29 @@ import requests
 import json
 import config
 
-def schedule_tweet(tweet_content, media_paths=None):
+def schedule_tweet(tweet_content, test_mode=False):
+    """
+    Schedule a tweet with option for test mode.
+    Args:
+        tweet_content: The content to tweet
+        test_mode: If True, only simulate the tweet without posting
+    """
+    if test_mode:
+        print("\n=== TEST MODE: Tweet Preview ===")
+        print("Tweet Content:")
+        tweets = tweet_content.split('\n')
+        for i, tweet in enumerate(tweets, 1):
+            if tweet.strip():  # Only print non-empty lines
+                print(f"\nTweet {i}:")
+                print("-" * 50)
+                print(tweet)
+                print(f"Character count: {len(tweet)}")
+                if len(tweet) > 280:
+                    print("⚠️ WARNING: Tweet exceeds 280 characters!")
+        print("\n=== End Test Mode ===")
+        return {"status": "test_success", "preview": tweets}
+
+    # Real posting logic
     url = "https://app.ayrshare.com/api/post"
     
     headers = {
@@ -18,10 +40,6 @@ def schedule_tweet(tweet_content, media_paths=None):
             "threadNumber": True
         }
     }
-
-    if media_paths:
-        media_urls = [{"1": media_path} for media_path in media_paths]
-        payload["twitterOptions"]["mediaUrls"] = media_urls
 
     response = requests.post(url, headers=headers, data=json.dumps(payload))
 
